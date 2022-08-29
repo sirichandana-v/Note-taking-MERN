@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.route("/notes").get(isAuthenticated, getAllNotes);
 router.route("/note/upload").post(isAuthenticated, createNote);
-router.route("/note/:id").delete(deleteNote).put(updateNote);
+router.route("/note/:id").delete(isAuthenticated, deleteNote).put(isAuthenticated, updateNote);
 
 
 module.exports = router;
